@@ -18,6 +18,7 @@
     erlang
     flycheck
     ruby-end
+    popwin
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
@@ -139,3 +140,9 @@ which require an initialization must be listed explicitly in the list.")
       ;; hack to remove the autoloaded `add-hook' in `ruby-end'
       (remove-hook 'ruby-mode-hook 'ruby-end-mode)
       (remove-hook 'enh-ruby-mode-hook 'ruby-end-mode))))
+
+(defun erlang-elixir/init-popwin ()
+  (use-package popwin
+    :defer t
+    :config
+    (push '("*mix*" :tail t :noselect t) popwin:special-display-config )))
